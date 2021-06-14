@@ -1,0 +1,9 @@
+<?php /** @var \Voloshkov\News\Block\Adminhtml\Toolbar\Add $block */
+echo $block->getData('br');
+echo $block->getData('aydi');
+echo $block->getChildHtml('grid');
+$data=['label' => __('Add Selected'),
+    'type' => 'button'];
+$block->addButton('idshka', $data);
+
+?>

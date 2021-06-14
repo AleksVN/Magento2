@@ -1,0 +1,29 @@
+<?php /** @var \Voloshkov\News\Block\BlockUrl $block */
+/** @var \Voloshkov\News\Model\Data\NewsData $dto */
+$dto = $block->getData('dto');
+$categoriesData = $block->getData('catData');
+?>
+
+<h2>Edit</h2>
+<div>
+    <form action="<?= $block->getSaveUrl() ?>" method="get">
+
+        <input name="id" type="hidden" value="<?= $dto->getId() ?>">
+        <p><input name="title" value="<?= $dto->getTitle() ?>"> Title</p>
+        <p><input name="description" value="<?= $dto->getDescription() ?>"> Description</p>
+        <p><input name="content" value="<?= $dto->getContent() ?>"> Content</p>
+
+
+        <select name="nameCategory">
+            <?php foreach ($categoriesData as $categoryData){?>
+            <option value="<?= $categoryData['id'] ?>"> <?= $categoryData['name'] ?> </option>
+        <?php } ?>
+        </select>
+
+
+
+
+
+        <button type="submit">Save</button>
+    </form>
+</div>

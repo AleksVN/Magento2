@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+             id="Voloshkov_News::main"
+             title="Module News"
+             translate="title"
+             module="Voloshkov_News"
+             sortOrder="22"
+
+             dependsOnModule="Magento_Catalog"
+             resource="Voloshkov_News::main" />
+
+        <add id="Voloshkov_News::index" title="View All" translate="title" module="Voloshkov_News" sortOrder="10" parent="Voloshkov_News::main" action="news/Alllist/index" resource="Voloshkov_News::index"/>
+
+
+
+
+    </menu>
+</config>

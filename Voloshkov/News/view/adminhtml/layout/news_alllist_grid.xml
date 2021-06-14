@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="news.container">
+            <!-- ім'я має співпадати обов'язково з тим блоком в який ми додаємося -->
+            <block class="Magento\Backend\Block\Widget\Grid" name="news.grid" as="grid">
+                <arguments>
+<!--                    <argument name="id" xsi:type="string">news_id</argument>-->
+<!--                    <argument name="dataSource" xsi:type="object" shared="false">Voloshkov\News\Model\ResourceModel\NewsResource\Collection</argument>-->
+                    <!--    dataSource - обов'язкове, див - app/code/Magento/Backend/Block/Widget/Grid.php:208 -->
+                    <argument name="default_sort" xsi:type="string">news_id</argument>
+                    <argument name="default_dir" xsi:type="string">ASC</argument>
+                    <!--   вибір колонки з таблиці і направлення сортування(по спаданню чи зростанню  -->
+                    <argument name="save_parameters_in_session" xsi:type="string">1</argument>
+                    <!--  Якщо 1 то якщо ти приміниш якийсь фільтр то він так і останеться примінений(запамятається)  -->
+                </arguments>
+                <block class="Magento\Backend\Block\Widget\Grid\Massaction"
+                       name="news.massaction" as="grid.massaction">
+                    <arguments>
+                        <argument name="massaction_id_field" xsi:type="string">news_id</argument>
+                        <argument name="form_field_name" xsi:type="string">ids</argument>
+                        <argument name="use_select_all" xsi:type="string">1</argument>
+                        <argument name="options" xsi:type="array">
+                            <item name="disable" xsi:type="array">
+                                <item name="label" xsi:type="string" translate="true">Delete</item>
+                                <item name="url" xsi:type="string">*/*/massDelete</item>
+                            </item>
+                        </argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" name="news.grid.columnSet" as="grid.columnSet">
+                    <!-- !!!Обовязковий АЛІАС!!! as="grid.columnSet" дивитись сюди app/code/Magento/Backend/Block/Widget/Grid.php:218-->
+                    <arguments>
+                        <argument name="id" xsi:type="string">news_id</argument>
+                        <argument name="rowUrl" xsi:type="array">
+                            <item name="path" xsi:type="string">*/*/edit</item>
+                            <item name="extraParamsTemplate" xsi:type="array">
+                                <item name="news_id" xsi:type="string">getId</item>
+                            </item>
+                            <!--  При натисненні на рядок буде відправлено на УРЛ  -->
+                        </argument>
+                    </arguments>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" name="news.grid.column.news_id" as="news_id">
+                        <arguments>
+                            <argument name="index" xsi:type="string">news_id</argument>
+                            <!--  Назва колонки з ТАБЛИЦІ!!!!  -->
+                            <argument name="filter_index" xsi:type="string">news_id</argument>
+                            <!--  Назва колонки з ТАБЛИЦІ по якій буде сортувати в випадку натиснення на рядок!!!! можна не вказувати тоді буде брати з індекс!  -->
+                            <argument name="header" xsi:type="string" translate="true">News ID</argument>
+                            <argument name="type" xsi:type="string">number</argument>
+                            <!--  тип фільтра  -->
+                            <argument name="column_css_class" xsi:type="string">col-news-id</argument>
+                            <argument name="header_css_class" xsi:type="string">col-news-id</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" name="news.grid.column.title" as="title">
+                        <arguments>
+                            <argument name="index" xsi:type="string">title</argument>
+                            <argument name="filter_index" xsi:type="string">title</argument>
+                            <argument name="header" xsi:type="string" translate="true">Title</argument>
+                            <argument name="type" xsi:type="string">text</argument>
+                            <argument name="column_css_class" xsi:type="string">col-title</argument>
+                            <argument name="header_css_class" xsi:type="string">col-title</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" name="news.grid.column.description" as="description">
+                        <arguments>
+                            <argument name="index" xsi:type="string">description</argument>
+                            <argument name="filter_index" xsi:type="string">description</argument>
+                            <argument name="header" xsi:type="string" translate="true">Description</argument>
+                            <argument name="type" xsi:type="string">text</argument>
+                            <argument name="column_css_class" xsi:type="string">col-description</argument>
+                            <argument name="header_css_class" xsi:type="string">col-description</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" name="news.grid.column.code" as="content">
+                        <arguments>
+                            <argument name="index" xsi:type="string">content</argument>
+                            <argument name="filter_index" xsi:type="string">content</argument>
+                            <argument name="header" xsi:type="string" translate="true">Content</argument>
+                            <argument name="type" xsi:type="string">text</argument>
+                            <argument name="column_css_class" xsi:type="string">col-content</argument>
+                            <argument name="header_css_class" xsi:type="string">col-content</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" name="news.grid.column.is_top" as="is_top">
+                        <arguments>
+                            <argument name="index" xsi:type="string">is_top</argument>
+                            <argument name="filter_index" xsi:type="string">is_top</argument>
+                            <argument name="header" xsi:type="string" translate="true">Is TOP</argument>
+                            <argument name="type" xsi:type="string">options</argument>
+                            <argument name="options" xsi:type="array">
+                                <item name="yes" xsi:type="array">
+                                    <item name="value" xsi:type="string">1</item>
+                                    <item name="label" xsi:type="string" translate="true">Yes</item>
+                                </item>
+                                <item name="no" xsi:type="array">
+                                    <item name="value" xsi:type="string">0</item>
+                                    <item name="label" xsi:type="string" translate="true">No</item>
+                                </item>
+                            </argument>
+                            <!--  тип фільтра опція ^^^ -->
+<!--                            <argument name="options" xsi:type="options" model="Magento\Widget\Model\ResourceModel\Widget\Instance\Options\Types"/>-->
+                            <!-- може бути таке ^^^ тоді клас який вказаний в атрибута model буде обробляти і співставляти опції -->
+                            <argument name="column_css_class" xsi:type="string">col-is-top</argument>
+                            <argument name="header_css_class" xsi:type="string">col-is-top</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" name="news.grid.column.admin_id" as="admin_id">
+                        <arguments>
+                            <argument name="index" xsi:type="string">admin_id</argument>
+                            <argument name="filter_index" xsi:type="string">admin_id</argument>
+                            <argument name="header" xsi:type="string" translate="true">Admin ID</argument>
+                            <argument name="column_css_class" xsi:type="string">col-admin-id</argument>
+                            <argument name="header_css_class" xsi:type="string">col-admin-id</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" name="news.grid.column.updated_at" as="updated_at">
+                        <arguments>
+                            <argument name="index" xsi:type="string">updated_at</argument>
+                            <argument name="filter_index" xsi:type="string">updated_at</argument>
+                            <argument name="header" xsi:type="string" translate="true">Updated At</argument>
+                            <argument name="type" xsi:type="string">datetime</argument>
+                            <argument name="column_css_class" xsi:type="string">col-updated-at</argument>
+                            <argument name="header_css_class" xsi:type="string">col-updated-at</argument>
+                        </arguments>
+                    </block>
+                </block>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

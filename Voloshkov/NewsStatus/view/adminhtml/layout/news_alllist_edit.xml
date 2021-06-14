@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Voloshkov\NewsStatus\Block\Adminhtml\Status\Container" name="adminhtml.news.status.container" before="adminhtml.news.form.container">
+                <arguments>
+                    <argument name="htmlId" xsi:type="string">status-container</argument>
+                    <argument name="needChild" xsi:type="boolean">false</argument>
+                </arguments>
+                <block class="Voloshkov\NewsStatus\Block\Adminhtml\Status\Main" name="adminhtml.news.status.container.main" as="status.main">
+                    <arguments>
+                        <argument name="mode" xsi:type="string">list</argument>
+                        <argument name="htmlId" xsi:type="string">status_main</argument>
+                        <argument name="label" xsi:type="string">Main Label</argument>
+                    </arguments>
+                </block>
+            </block>
+            <block class="Voloshkov\NewsStatus\Block\Adminhtml\Status\Container" name="adminhtml.news.status.container2" after="adminhtml.news.status.container">
+            <arguments>
+                <argument name="htmlId" xsi:type="string">status-container2</argument>
+                <argument name="needChild" xsi:type="boolean">true</argument>
+            </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

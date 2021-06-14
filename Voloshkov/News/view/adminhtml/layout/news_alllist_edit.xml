@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+<!--        <referenceContainer name="left">-->
+<!--            <block class="Magento\User\Block\User\Edit\Tabs" name="adminhtml.user.edit.tabs">-->
+<!--                <block class="tab1"/>-->
+<!--                <block class="tab2"/>-->
+<!--        </referenceContainer>-->
+
+        <referenceContainer name="left">
+<!--            <block class="Voloshkov\News\Block\Adminhtml\Alllist\Edit\Tabs" name="adminhtml.user.edit.tabs"/>-->
+        </referenceContainer>
+
+        <referenceContainer name="content">
+<!--            <block class="Voloshkov\News\Block\Adminhtml\Alllist\EditContainer" name="adminhtml.news.form.container">-->
+<!--            </block>-->
+            <block class="Voloshkov\News\Block\Adminhtml\Forms\Edit\FormContainer" name="adminhtml.news.form.container"/>
+        </referenceContainer>
+<!--        <referenceContainer name="js">-->
+<!--            <block class="Magento\Backend\Block\Template" name="adminhtml.user.roles.grid.js" template="Magento_User::user/roles_grid_js.phtml"/>-->
+<!--        </referenceContainer>-->
+    </body>
+</page>

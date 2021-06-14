@@ -1,0 +1,49 @@
+<?php
+/**
+ * @var $block \Voloshkov\NewsStatus\Block\Adminhtml\Status\Main
+ */
+?>
+<div id="<?= $block->getData('htmlId'); ?>" class="block-main">
+    <p><?= $block->getData('label')?></p>
+    <?php if ($dto = $block->getData('dto')) : ?>
+        <?php if ($block->getData('mode') === \Voloshkov\NewsStatus\Block\Adminhtml\Status\Main::LIST_MODE) :?>
+            <table class="admin__table-primary dashboard-data">
+                <caption>STATUS TABLE LIST</caption>
+                <thead>
+                    <tr>
+                        <th><?= __('Title') ?></th>
+                        <th><?= __('Content') ?></th>
+                        <th><?= __('Status') ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th><?= $dto->getTitle() ?></th>
+                        <th><?= $dto->getContent() ?></th>
+                        <th><?= __('Approved') ?></th>
+                    </tr>
+                </tbody>
+            </table>
+        <?php else : ?>
+            <table class="admin__control-table">
+                <caption>STATUS TABLE GRID</caption>
+                <thead>
+                <tr>
+                    <th><?= __('Title') ?></th>
+                    <th><?= __('Content') ?></th>
+                    <th><?= __('Status') ?></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th><?= $dto->getTitle() ?></th>
+                    <th><?= $dto->getContent() ?></th>
+                    <th><?= __('Approved') ?></th>
+                </tr>
+                </tbody>
+            </table>
+        <?php endif; ?>
+    <?php else : ?>
+        <p><?= __('Not found'); ?></p>
+    <?php endif; ?>
+</div>

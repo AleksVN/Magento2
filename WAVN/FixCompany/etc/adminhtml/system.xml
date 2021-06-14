@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="carriers">
+            <group id="fixcompany" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+
+
+
+
+                <label>USER_ID_nugche</label>
+                <field id="adminid" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Admin ID</label>
+                    <source_model>WAVN\FixCompany\Services\CheckAdmin</source_model>
+<!--                    <backend_model>WAVN\FixCompany\Model\ObrobotchikID</backend_model>-->
+                    <!--         ЦЕ ОНО?       https://devdocs.magento.com/guides/v2.4/config-guide/prod/config-reference-systemxml.html-->
+                </field>
+
+        </group>
+        </section>
+    </system>
+</config>
+

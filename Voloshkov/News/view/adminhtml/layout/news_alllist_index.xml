@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="news_alllist_grid"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Voloshkov\News\Block\Adminhtml\Toolbar\Add" name="news.container"/>
+            <!-- це є спеціальний клас, який має спеціальну імплементацію -->
+
+        </referenceContainer>
+    </body>
+</page>
+
+<!-- Звернути увагу!!!
+1) клас блоку спеціальний! (про сам блок пізніше)
+2) ім'я referenceBlock має співпадати обов'язково з тим блоком в який ми додаємося (news.container)
+3) <argument name="dataSource" ... - dataSource - обов'язкове, див - app/code/Magento/Backend/Block/Widget/Grid.php:208
+4) as="grid.columnSet" є обов'язковим аліасом. Якщо поміняти то буде фатал еррор. дивитись сюди app/code/Magento/Backend/Block/Widget/Grid.php:218
+5) <argument name="index" xsi:type="string">!!!news_id!!!</argument> - Назва колонки з ТАБЛИЦІ!!!!
+6) 91 - 93 строчка - про типи фільтрів. Щоб побачити , які ще є просто шукай " <argument name="options" xsi:type= "
+
+-->

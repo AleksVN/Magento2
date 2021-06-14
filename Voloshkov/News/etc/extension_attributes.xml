@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+    <!--
+    /**
+     * Copyright © Magento, Inc. All rights reserved.
+     * See COPYING.txt for license details.
+     */
+    -->
+<!--Даний файл по суті обєднує модельку з фора і нашу модельку через метод який утворився з коде-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+<!--for - до чого... будемо додавати атрибут-->
+    <extension_attributes for="Magento\Customer\Api\Data\CustomerInterface">
+    <attribute code="news_list_customer_id" type="Voloshkov\News\Api\Data\NewsDataInterface[]" />
+</extension_attributes>
+</config>

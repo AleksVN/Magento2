@@ -1,0 +1,21 @@
+<?php /** @var \Voloshkov\News\Block\BlockUrl $block */
+/** @var \Voloshkov\News\Model\NewsModel $modelNews */
+$modelNews = $block->getData('all');
+?>
+
+<a href="<?= $block->getUrl('news/mylist/edit')?>">Add</a>
+<br>
+<?php  foreach ($modelNews as $model) : ?>
+    <hr>
+        <h3><a href="<?= $block->getViewUrl($model->getId()); ?>"> <?= $model->getData('title') ?></a></h3>
+    <h5><a href="<?= $block->getDeleteUrl($model->getId()); ?>"> Delete </a></h5>
+
+        <div>
+            <p> <?= $model->getData('description') ?> </p>
+        </div>
+
+        <div class="info">
+            <h5>Update: <?= $model->getData('updated_at') ?></h5>
+        </div>
+
+<?php endforeach; ?>

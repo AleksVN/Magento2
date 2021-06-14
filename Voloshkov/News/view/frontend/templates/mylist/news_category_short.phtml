@@ -1,0 +1,11 @@
+<?php /** @var \Voloshkov\News\Block\NewsCategory $block */
+/** @var $objPrepare \Voloshkov\News\ViewModel\PrepareNewsCategory */
+
+$objPrepare = $block->getViewModel();
+$newsCollection = $objPrepare->getNewsItems();
+?>
+
+
+<?php  foreach ($newsCollection as $news) : ?>
+        <h3><?= $news->getTitle() ?></h3>
+<?php endforeach; ?>

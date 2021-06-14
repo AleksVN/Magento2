@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <head>
+        <title>My News</title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Voloshkov\News\Block\BlockUrl" name="mylist_all" template="Voloshkov_News::mylist/all.phtml" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

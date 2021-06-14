@@ -1,0 +1,16 @@
+<?php /** @var \Voloshkov\News\Block\BlockUrl $block */
+/** @var \Voloshkov\News\Model\Data\NewsData $dto */
+$dto = $block->getData('dto');
+?>
+
+<h2>ViewOne</h2>
+<div>
+    <a href="<?= $block->getEditUrl(); ?>">Edit</a> <br>
+    <h3><?= $dto->getTitle(); ?></h3>
+    <p><?= $dto->getContent(); ?> </p>
+</div>
+
+
+<div class="info">
+    <h5>Update: <?= $dto->getUpdatedAt(); ?></h5>
+</div>

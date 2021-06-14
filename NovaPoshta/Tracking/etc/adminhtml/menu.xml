@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+             id="NovaPoshta_Tracking::main"
+             title="Nova Poshta"
+             translate="title"
+             module="NovaPoshta_Tracking"
+             sortOrder="23"
+
+             dependsOnModule="Magento_Catalog"
+             resource="NovaPoshta_Tracking::main" />
+
+        <add id="NovaPoshta_Tracking::index" title="Tracking" translate="title" module="NovaPoshta_Tracking" sortOrder="10" parent="NovaPoshta_Tracking::main" action="np/tracking/index" resource="NovaPoshta_Tracking::index"/>
+
+    </menu>
+</config>

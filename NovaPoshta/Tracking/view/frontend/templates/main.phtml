@@ -1,0 +1,26 @@
+<?php
+/** @var $block \NovaPoshta\Tracking\Block\Main */
+$data = $block->getData('info');
+?>
+<div id="tracking">
+    <form id="form-main" action="<?= $block->getFormUrl() ?>" method="post">
+        <div class="field">
+            <label for="ttn">TTN</label>
+            <input id="ttn" name="ttn" type="number" placeholder="20450349714861" value="20450349714861">
+        </div>
+        <div class="actions-toolbar">
+            <button class="submit" type="submit">Send</button>
+        </div>
+    </form>
+    <div class="show-track" style="display: none">
+        <p><?= __('ПІБ:') ?> <span class="name"></span>
+        <p><?= __('Адреса отримувача:') ?> <span class="address"></span>
+    </div>
+</div>
+<script type="text/x-magento-init">
+{
+    "#tracking": {
+        "NovaPoshta_Tracking/js/index": {"form": "#form-main"}
+    }
+}
+</script>
